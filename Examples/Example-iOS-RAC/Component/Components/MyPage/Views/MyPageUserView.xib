@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MyPageUserView" customModule="Component" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="252"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="i5h-L8-fiI">
+                    <rect key="frame" x="143" y="44" width="128" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="128" id="gj1-FB-9bt"/>
+                        <constraint firstAttribute="width" secondItem="i5h-L8-fiI" secondAttribute="height" multiplier="1:1" id="lL1-kO-sV6"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLO-2V-OX9">
+                    <rect key="frame" x="32" y="196" width="350" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="i5h-L8-fiI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1mF-Ax-xwL"/>
+                <constraint firstItem="YLO-2V-OX9" firstAttribute="top" secondItem="i5h-L8-fiI" secondAttribute="bottom" constant="24" id="V6r-HT-m9J"/>
+                <constraint firstItem="i5h-L8-fiI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="aeA-w0-N7k"/>
+                <constraint firstItem="YLO-2V-OX9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="32" id="lr4-TA-cEm"/>
+                <constraint firstAttribute="trailing" secondItem="YLO-2V-OX9" secondAttribute="trailing" constant="32" id="oNh-QE-SkH"/>
+                <constraint firstAttribute="bottom" secondItem="YLO-2V-OX9" secondAttribute="bottom" constant="16" id="rI8-4Y-Xgw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="i5h-L8-fiI" id="DMW-Xx-64d"/>
+                <outlet property="userNameLabel" destination="YLO-2V-OX9" id="8hT-QK-jG0"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="357.92410714285711"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="User" width="76" height="76"/>
+    </resources>
+</document>

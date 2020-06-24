@@ -1,0 +1,2 @@
+PRODUCT_BUNDLE_IDENTIFIER = com.kyoheiito.Plan.Example-iOS-RAC
+CODE_SIGN_IDENTITY = iPhone Distribution

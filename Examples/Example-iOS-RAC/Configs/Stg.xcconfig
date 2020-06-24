@@ -1,0 +1,4 @@
+#include "./Base.xcconfig"
+//:configuration = Stg
+
+OTHER_SWIFT_FLAGS = $(inherited) -DSTAGE

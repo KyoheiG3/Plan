@@ -1,0 +1,4 @@
+#include "./Base.xcconfig"
+//:configuration = Dev
+
+OTHER_SWIFT_FLAGS = $(inherited) -DDEBUG

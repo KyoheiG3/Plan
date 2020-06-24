@@ -1,0 +1,4 @@
+TARGETED_DEVICE_FAMILY = 1
+SDKROOT = iphoneos
+SUPPORTED_PLATFORMS = iphonesimulator iphoneos
+DEVELOPMENT_LANGUAGE = Japan
