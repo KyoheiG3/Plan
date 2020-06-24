@@ -1,0 +1,7 @@
+SWIFT_VERSION = 5.0
+IPHONEOS_DEPLOYMENT_TARGET = 10.0
+MACOSX_DEPLOYMENT_TARGET = 10.12
+TVOS_DEPLOYMENT_TARGET = 10.0
+WATCHOS_DEPLOYMENT_TARGET = 3.0
+
+SUPPORTED_PLATFORMS = macosx iphoneos iphonesimulator watchos watchsimulator appletvos appletvsimulator
