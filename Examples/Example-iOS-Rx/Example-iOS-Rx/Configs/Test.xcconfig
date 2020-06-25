@@ -1,0 +1,6 @@
+#include "./Base.xcconfig"
+#include "./Environment/Dev.xcconfig"
+#include "./Provisioning/Development.xcconfig"
+//:configuration = Test
+
+PRODUCT_DISPLAY_NAME = Clean-Test

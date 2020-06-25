@@ -1,0 +1,152 @@
+name: Example-iOS-Rx
+configs:
+  Dev: debug
+  Stg: debug
+  Test: debug
+  Prd: release
+configFiles:
+  Dev: Configs/Dev.xcconfig
+  Stg: Configs/Stg.xcconfig
+  Test: Configs/Test.xcconfig
+  Prd: Configs/Prd.xcconfig
+options:
+  groupSortPosition: top
+attributes:
+  ORGANIZATIONNAME: Kyohei Ito
+schemes:
+  Example-iOS-Rx:
+    build:
+      targets:
+        Example-iOS-Rx: all
+    run:
+      config: Dev
+    profile:
+      config: Prd
+    analyze:
+      config: Dev
+    archive:
+      config: Prd
+
+  Presentation:
+    build:
+      targets:
+        Presentation: all
+        PresentationTests:
+          - test
+    run:
+      config: Dev
+    test:
+      config: Test
+      gatherCoverageData: true
+      targets:
+        - PresentationTests
+
+  Entity:
+    build:
+      targets:
+        Entity: all
+        EntityTests:
+          - test
+    run:
+      config: Dev
+    test:
+      config: Test
+      gatherCoverageData: true
+      targets:
+        - EntityTests
+
+targets:
+  Example-iOS-Rx:
+    type: application
+    platform: iOS
+    configFiles:
+      Dev: Example-iOS-Rx/Configs/Dev.xcconfig
+      Stg: Example-iOS-Rx/Configs/Stg.xcconfig
+      Test: Example-iOS-Rx/Configs/Test.xcconfig
+      Prd: Example-iOS-Rx/Configs/Prd.xcconfig
+    sources:
+      - Configs
+      - Example-iOS-Rx
+    dependencies:
+      - target: Component
+      - target: Domain
+      - target: Entity
+      - target: Presentation
+      - target: Plan
+      - carthage: RxSwift
+    settings:
+      base:
+        CODE_SIGN_IDENTITY: $(inherited)
+
+  Presentation:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Presentation
+    dependencies:
+      - target: Component
+      - target: Domain
+      - target: Entity
+      - target: Plan
+      - carthage: RxSwift
+      - carthage: RxRelay
+
+  PresentationTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - PresentationTests
+    dependencies:
+      - target: Presentation
+
+  Domain:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Domain
+    dependencies:
+      - target: Component
+      - target: Entity
+      - target: Plan
+      - carthage: RxSwift
+      - carthage: RxRelay
+
+  DomainTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - DomainTests
+    dependencies:
+      - target: Domain
+
+  Component:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Component
+    dependencies:
+      - target: Entity
+      - carthage: RxCocoa
+      - carthage: RxSwift
+      - carthage: Carbon
+      - carthage: DifferenceKit
+
+  Entity:
+    type: framework
+    platform: iOS
+    sources:
+      - Entity
+
+  EntityTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - EntityTests
+    dependencies:
+      - target: Entity
+
+  Plan:
+    type: framework
+    platform: iOS
+    sources:
+      - ../../Plan

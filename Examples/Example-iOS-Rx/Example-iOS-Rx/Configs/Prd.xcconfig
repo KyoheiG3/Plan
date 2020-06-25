@@ -1,0 +1,7 @@
+#include "./Base.xcconfig"
+#include "./Environment/Prd.xcconfig"
+#include "./Provisioning/Distribution.xcconfig"
+//:configuration = Prd
+
+PRODUCT_DISPLAY_NAME = Clean
+CLANG_ENABLE_CODE_COVERAGE = NO

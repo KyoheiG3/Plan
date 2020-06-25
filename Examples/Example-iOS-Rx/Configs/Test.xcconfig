@@ -1,0 +1,4 @@
+#include "./Base.xcconfig"
+//:configuration = Test
+
+OTHER_SWIFT_FLAGS = $(inherited) -DTEST
