@@ -41,6 +41,20 @@ schemes:
       targets:
         - PresentationTests
 
+  Domain:
+    build:
+      targets:
+        Domain: all
+        DomainTests:
+          - test
+    run:
+      config: Dev
+    test:
+      config: Test
+      gatherCoverageData: true
+      targets:
+        - DomainTests
+
   Entity:
     build:
       targets:
@@ -72,7 +86,7 @@ targets:
       - target: Domain
       - target: Entity
       - target: Presentation
-      - target: Plan
+      - carthage: Plan
       - carthage: RxSwift
     settings:
       base:
@@ -87,7 +101,7 @@ targets:
       - target: Component
       - target: Domain
       - target: Entity
-      - target: Plan
+      - carthage: Plan
       - carthage: RxSwift
       - carthage: RxRelay
 
@@ -107,7 +121,7 @@ targets:
     dependencies:
       - target: Component
       - target: Entity
-      - target: Plan
+      - carthage: Plan
       - carthage: RxSwift
       - carthage: RxRelay
 
@@ -144,9 +158,3 @@ targets:
       - EntityTests
     dependencies:
       - target: Entity
-
-  Plan:
-    type: framework
-    platform: iOS
-    sources:
-      - ../../Plan

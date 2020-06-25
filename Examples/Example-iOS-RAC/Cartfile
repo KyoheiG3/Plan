@@ -1,4 +1,4 @@
-github "ReactiveCocoa/ReactiveCocoa" == 10.3.0      # https://github.com/ReactiveCocoa/ReactiveCocoa/releases
-github "ReactiveCocoa/ReactiveSwift" == 6.3.0       # https://github.com/ReactiveCocoa/ReactiveSwift/releases
-
-github "ra1028/Carbon" "fbe2c84c0e006051a8592624be6c32f87a10cd83"         # https://github.com/ra1028/Carbon/releases
+github "ReactiveCocoa/ReactiveCocoa" == 10.3.0
+github "ReactiveCocoa/ReactiveSwift" == 6.3.0
+github "ra1028/Carbon" "fbe2c84c0e006051a8592624be6c32f87a10cd83"
+git "../../../Plan" == 0.0.1
