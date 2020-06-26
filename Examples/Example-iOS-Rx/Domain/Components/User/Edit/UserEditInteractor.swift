@@ -1,20 +1,16 @@
-import Component
-import Entity
 import Plan
 import RxSwift
+import UseCase
 
-public final class UserEditInteractor: Interactor<UserEditInteractor.Action>, UserEditUseCase {
-    public enum Action {
-        case loading
-        case edit(Result<User, Error>)
-    }
-
+public final class UserEditInteractor: Interactor<UserEditUseCaseAction>, UserEditUseCase {
     public struct Dependency {
-        var userRepository: UserRepositoryProtocol
+        public var userRepository: UserRepositoryProtocol
 
-        public static var `default` = Dependency(
-            userRepository: UserRepository.shared
-        )
+        public init(
+            userRepository: UserRepositoryProtocol
+        ) {
+            self.userRepository = userRepository
+        }
     }
 
     private let dependency: Dependency

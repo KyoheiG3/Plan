@@ -1,12 +1,9 @@
-import UIKit
 import ReactiveSwift
+import UIKit
+import UseCase
 
 public protocol UserEditRouting: AnyObject {
     func pop()
-}
-
-public protocol UserEditUseCase {
-    func edit(userName: String, password: String)
 }
 
 public protocol UserEditPresenterProtocol {

@@ -1,8 +1,5 @@
 import ReactiveSwift
-
-public protocol Refreshable: AnyObject, ReactiveExtensionsProvider {
-    func refresh()
-}
+import UseCase
 
 public extension Refreshable {
     var refresh: BindingTarget<Void> {

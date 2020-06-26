@@ -1,20 +1,16 @@
-import Component
-import Entity
 import Plan
 import RxSwift
+import UseCase
 
-public final class MyPageInteractor: Interactor<MyPageInteractor.Action>, MyPageUseCase {
-    public enum Action {
-        case updateUser(User?)
-        case logout
-    }
-
+public final class MyPageInteractor: Interactor<MyPageUseCaseAction>, MyPageUseCase {
     public struct Dependency {
-        var userRepository: UserRepositoryProtocol
+        public var userRepository: UserRepositoryProtocol
 
-        public static var `default` = Dependency(
-            userRepository: UserRepository.shared
-        )
+        public init(
+            userRepository: UserRepositoryProtocol
+        ) {
+            self.userRepository = userRepository
+        }
     }
 
     private let dependency: Dependency

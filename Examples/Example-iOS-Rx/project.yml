@@ -86,6 +86,7 @@ targets:
       - target: Domain
       - target: Entity
       - target: Presentation
+      - target: UseCase
       - carthage: Plan
       - carthage: RxSwift
     settings:
@@ -99,8 +100,8 @@ targets:
       - path: Presentation
     dependencies:
       - target: Component
-      - target: Domain
       - target: Entity
+      - target: UseCase
       - carthage: Plan
       - carthage: RxSwift
       - carthage: RxRelay
@@ -119,8 +120,8 @@ targets:
     sources:
       - path: Domain
     dependencies:
-      - target: Component
       - target: Entity
+      - target: UseCase
       - carthage: Plan
       - carthage: RxSwift
       - carthage: RxRelay
@@ -140,10 +141,20 @@ targets:
       - path: Component
     dependencies:
       - target: Entity
+      - target: UseCase
       - carthage: RxCocoa
       - carthage: RxSwift
       - carthage: Carbon
       - carthage: DifferenceKit
+
+  UseCase:
+    type: framework
+    platform: iOS
+    sources:
+      - path: UseCase
+    dependencies:
+      - target: Entity
+      - carthage: RxSwift
 
   Entity:
     type: framework

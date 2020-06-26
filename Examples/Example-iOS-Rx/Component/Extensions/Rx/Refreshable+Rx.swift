@@ -1,9 +1,5 @@
 import RxCocoa
-import RxSwift
-
-public protocol Refreshable: AnyObject {
-    func refresh()
-}
+import UseCase
 
 public extension Refreshable {
     var refresh: Binder<Void> {

@@ -1,7 +1,7 @@
 import Component
-import Domain
 import Plan
 import ReactiveSwift
+import UseCase
 
 public final class HomePresenter: Presenter<HomeTranslator>, HomePresenterProtocol {
     public var dataState: Property<HomeComposer.State> {
@@ -18,7 +18,7 @@ public final class HomeStore: Store {
 public struct HomeTranslator: Translator {
     public init() {}
 
-    public func translate(action: HomeInteractor.Action, store: HomeStore) {
+    public func translate(action: HomeUseCaseAction, store: HomeStore) {
         switch action {
         case .updateUser(let user):
             store.viewModel.value.state.user = user

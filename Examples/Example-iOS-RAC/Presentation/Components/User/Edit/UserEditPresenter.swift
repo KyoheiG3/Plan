@@ -1,7 +1,7 @@
 import Component
-import Domain
 import Plan
 import ReactiveSwift
+import UseCase
 
 public final class UserEditPresenter: Presenter<UserEditTranslator>, UserEditPresenterProtocol {
     public var viewModel: Property<UserEditViewModel> {
@@ -23,7 +23,7 @@ public final class UserEditStore: Store {
 public struct UserEditTranslator: Translator {
     public init() {}
 
-    public func translate(action: UserEditInteractor.Action, store: UserEditStore) {
+    public func translate(action: UserEditUseCaseAction, store: UserEditStore) {
         switch action {
         case .loading:
             store.viewModel.value.loginProgress = .loading

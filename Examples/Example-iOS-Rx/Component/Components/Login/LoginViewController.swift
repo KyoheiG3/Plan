@@ -1,12 +1,9 @@
-import UIKit
 import RxSwift
+import UIKit
+import UseCase
 
 public protocol LoginRouting: AnyObject {
     func dismiss()
-}
-
-public protocol LoginUseCase {
-    func login(userName: String, password: String)
 }
 
 public protocol LoginPresenterProtocol {

@@ -1,8 +1,8 @@
 import Component
-import Domain
 import Plan
 import RxRelay
 import RxSwift
+import UseCase
 
 public final class LoginPresenter: Presenter<LoginTranslator>, LoginPresenterProtocol {
     public var viewModel: Observable<LoginViewModel> {
@@ -24,7 +24,7 @@ public final class LoginStore: Store {
 public struct LoginTranslator: Translator {
     public init() {}
 
-    public func translate(action: LoginInteractor.Action, store: LoginStore) {
+    public func translate(action: LoginUseCaseAction, store: LoginStore) {
         switch action {
         case .loading:
             store.viewModel.modefy { viewModel in

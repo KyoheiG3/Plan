@@ -2,10 +2,9 @@ import Carbon
 import Entity
 import ReactiveSwift
 import UIKit
+import UseCase
 
 public protocol HomeRouting: AnyObject {}
-
-public protocol HomeUseCase: Refreshable {}
 
 public protocol HomePresenterProtocol {
     var dataState: Property<HomeComposer.State> { get }

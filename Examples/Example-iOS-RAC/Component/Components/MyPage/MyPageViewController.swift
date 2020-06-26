@@ -2,15 +2,12 @@ import Carbon
 import Entity
 import ReactiveSwift
 import UIKit
+import UseCase
 
 public protocol MyPageRouting: AnyObject {
     func presentLogin()
     func pushUserEdit()
     func showHome(resetRequired: Bool)
-}
-
-public protocol MyPageUseCase: Refreshable {
-    func logout()
 }
 
 public protocol MyPagePresenterProtocol {

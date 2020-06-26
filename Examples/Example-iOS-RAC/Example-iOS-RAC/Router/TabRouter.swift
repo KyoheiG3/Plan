@@ -25,7 +25,7 @@ final class TabRouter: NavigationRouting {
                 title: String(describing: tab), image: nil, tag: tag
             )
         }
-        container?.viewControllers = controllers.map { $0.controller }
+        container?.viewControllers = controllers.map(\.controller)
     }
 
     func select(tab: RootTab) {

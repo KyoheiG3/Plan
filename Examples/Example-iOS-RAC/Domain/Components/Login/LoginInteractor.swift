@@ -1,20 +1,16 @@
-import Component
-import Entity
 import Plan
 import ReactiveSwift
+import UseCase
 
-public final class LoginInteractor: Interactor<LoginInteractor.Action>, LoginUseCase {
-    public enum Action {
-        case loading
-        case login(Result<User, Error>)
-    }
-
+public final class LoginInteractor: Interactor<LoginUseCaseAction>, LoginUseCase {
     public struct Dependency {
-        var userRepository: UserRepositoryProtocol
+        public var userRepository: UserRepositoryProtocol
 
-        public static var `default` = Dependency(
-            userRepository: UserRepository.shared
-        )
+        public init(
+            userRepository: UserRepositoryProtocol
+        ) {
+            self.userRepository = userRepository
+        }
     }
 
     private let dependency: Dependency

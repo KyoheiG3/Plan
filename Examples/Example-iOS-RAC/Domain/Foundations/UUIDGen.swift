@@ -1,6 +1,6 @@
 import Foundation
 
-protocol UUIDGen {
+public protocol UUIDGen {
     var uuidString: String { get }
 }
 

@@ -2,40 +2,42 @@ import Entity
 import Foundation
 import ReactiveSwift
 
-protocol UserRepositoryProtocol {
+public protocol UserRepositoryProtocol {
     func loginUser() -> User?
     func login(userName: String, password: String) -> SignalProducer<User, Error>
     func logout()
 }
 
-final class UserRepository: UserRepositoryProtocol {
-    static let shared = UserRepository(dependency: .default)
+public final class UserRepository: UserRepositoryProtocol {
+    public struct Dependency {
+        public var scheduler: DateScheduler
+        public var userDefaults: UserDefaults
+        public var uuidGen: UUIDGen
 
-    struct Dependency {
-        var scheduler: DateScheduler
-        var userDefaults: UserDefaults
-        var uuidGen: UUIDGen
-
-        static let `default` = Dependency(
-            scheduler: QueueScheduler.main,
-            userDefaults: UserDefaults.standard,
-            uuidGen: UUID()
-        )
+        public init(
+            scheduler: DateScheduler,
+            userDefaults: UserDefaults,
+            uuidGen: UUIDGen
+        ) {
+            self.scheduler = scheduler
+            self.userDefaults = userDefaults
+            self.uuidGen = uuidGen
+        }
     }
 
     private let dependency: Dependency
 
-    init(dependency: Dependency) {
+    public init(dependency: Dependency) {
         self.dependency = dependency
     }
 
-    func loginUser() -> User? {
+    public func loginUser() -> User? {
         try? dependency.userDefaults.data(forKey: .user).map {
             try JSONDecoder().decode(User.self, from: $0)
         }
     }
 
-    func login(userName: String, password: String) -> SignalProducer<User, Error> {
+    public func login(userName: String, password: String) -> SignalProducer<User, Error> {
         let dependency = self.dependency
         return SignalProducer { observer, lifetime in
             let user = User(
@@ -54,7 +56,7 @@ final class UserRepository: UserRepositoryProtocol {
         .delay(1, on: dependency.scheduler)
     }
 
-    func logout() {
+    public func logout() {
         dependency.userDefaults.set(nil, forKey: .token)
         dependency.userDefaults.set(nil, forKey: .user)
     }

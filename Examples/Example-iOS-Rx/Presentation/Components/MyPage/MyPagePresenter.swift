@@ -1,8 +1,8 @@
 import Component
-import Domain
 import Plan
 import RxRelay
 import RxSwift
+import UseCase
 
 public final class MyPagePresenter: Presenter<MyPageTranslator>, MyPagePresenterProtocol {
     public var viewModel: Observable<MyPageViewModel> {
@@ -24,7 +24,7 @@ public final class MyPageStore: Store {
 public struct MyPageTranslator: Translator {
     public init() {}
 
-    public func translate(action: MyPageInteractor.Action, store: MyPageStore) {
+    public func translate(action: MyPageUseCaseAction, store: MyPageStore) {
         switch action {
         case .updateUser(let user):
             store.viewModel.modefy { viewModel in

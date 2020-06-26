@@ -86,6 +86,7 @@ targets:
       - target: Domain
       - target: Entity
       - target: Presentation
+      - target: UseCase
       - carthage: Plan
       - carthage: ReactiveCocoa
       - carthage: ReactiveSwift
@@ -100,8 +101,8 @@ targets:
       - path: Presentation
     dependencies:
       - target: Component
-      - target: Domain
       - target: Entity
+      - target: UseCase
       - carthage: Plan
       - carthage: ReactiveSwift
 
@@ -119,8 +120,8 @@ targets:
     sources:
       - path: Domain
     dependencies:
-      - target: Component
       - target: Entity
+      - target: UseCase
       - carthage: Plan
       - carthage: ReactiveSwift
 
@@ -139,10 +140,20 @@ targets:
       - path: Component
     dependencies:
       - target: Entity
+      - target: UseCase
       - carthage: ReactiveCocoa
       - carthage: ReactiveSwift
       - carthage: Carbon
       - carthage: DifferenceKit
+
+  UseCase:
+    type: framework
+    platform: iOS
+    sources:
+      - path: UseCase
+    dependencies:
+      - target: Entity
+      - carthage: ReactiveSwift
 
   Entity:
     type: framework
