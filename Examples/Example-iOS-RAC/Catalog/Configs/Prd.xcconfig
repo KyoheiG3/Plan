@@ -1,0 +1,6 @@
+#include "./Base.xcconfig"
+#include "./Provisioning/Distribution.xcconfig"
+//:configuration = Prd
+
+PRODUCT_DISPLAY_NAME = Catalog
+CLANG_ENABLE_CODE_COVERAGE = NO

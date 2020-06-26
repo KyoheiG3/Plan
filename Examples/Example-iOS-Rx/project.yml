@@ -27,6 +27,25 @@ schemes:
     archive:
       config: Prd
 
+  Catalog:
+    build:
+      targets:
+        Catalog: all
+    run:
+      config: Dev
+      environmentVariables:
+        SNAPSHOT_DIR: $(SOURCE_ROOT)/Snapshots
+    test:
+      config: Test
+      targets:
+        - CatalogSnapshot
+    profile:
+      config: Prd
+    analyze:
+      config: Dev
+    archive:
+      config: Prd
+
   Presentation:
     build:
       targets:
@@ -89,9 +108,38 @@ targets:
       - target: UseCase
       - carthage: Plan
       - carthage: RxSwift
-    settings:
-      base:
-        CODE_SIGN_IDENTITY: $(inherited)
+
+  Catalog:
+    type: application
+    platform: iOS
+    configFiles:
+      Dev: Catalog/Configs/Dev.xcconfig
+      Stg: Catalog/Configs/Stg.xcconfig
+      Test: Catalog/Configs/Test.xcconfig
+      Prd: Catalog/Configs/Prd.xcconfig
+    sources:
+      - Configs
+      - Catalog
+    dependencies:
+      - target: Component
+      - target: Entity
+      - target: UseCase
+      - carthage: PlaybookUI
+      - carthage: Playbook
+      - carthage: RxRelay
+      - carthage: RxCocoa
+      - carthage: RxSwift
+      - carthage: Carbon
+      - carthage: DifferenceKit
+
+  CatalogSnapshot:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - CatalogSnapshot
+    dependencies:
+      - target: Catalog
+      - carthage: PlaybookSnapshot
 
   Presentation:
     type: framework

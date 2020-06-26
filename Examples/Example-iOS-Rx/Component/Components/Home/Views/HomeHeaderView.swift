@@ -2,23 +2,27 @@ import Carbon
 import Entity
 import UIKit
 
-struct HomeHeaderComponent: IdentifiableComponent {
-    var user: User?
+public struct HomeHeaderComponent: IdentifiableComponent {
+    public var user: User?
 
-    var id: String? {
+    public var id: String? {
         user?.id
     }
 
-    func referenceSize(in bounds: CGRect) -> CGSize? {
+    public init(user: User?) {
+        self.user = user
+    }
+
+    public func referenceSize(in bounds: CGRect) -> CGSize? {
         CGSize(width: bounds.width, height: 166)
     }
 
-    func shouldRender(next: HomeHeaderComponent, in content: HomeHeaderView) -> Bool {
+    public func shouldRender(next: HomeHeaderComponent, in content: HomeHeaderView) -> Bool {
         user?.name != next.user?.name
     }
 }
 
-final class HomeHeaderView: UIView, NibLoadable, Renderable {
+public final class HomeHeaderView: UIView, NibLoadable, Renderable {
     @IBOutlet private weak var textLabel: UILabel! {
         didSet {
             textLabel.font = .systemFont(ofSize: 32)
@@ -26,7 +30,7 @@ final class HomeHeaderView: UIView, NibLoadable, Renderable {
         }
     }
 
-    func render(with component: HomeHeaderComponent) {
+    public func render(with component: HomeHeaderComponent) {
         textLabel.text = "Hello! " + (component.user?.name ?? "Guest")
     }
 }

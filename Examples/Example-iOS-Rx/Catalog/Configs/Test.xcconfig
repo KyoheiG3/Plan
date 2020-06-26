@@ -1,0 +1,5 @@
+#include "./Base.xcconfig"
+#include "./Provisioning/Development.xcconfig"
+//:configuration = Test
+
+PRODUCT_DISPLAY_NAME = Catalog-Test

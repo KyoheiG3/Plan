@@ -1,4 +1,5 @@
 git "../../../Plan" "0.0.2"
 github "ReactiveX/RxSwift" "5.1.1"
+github "playbook-ui/playbook-ios" "0.1.1"
 github "ra1028/Carbon" "fbe2c84c0e006051a8592624be6c32f87a10cd83"
 github "ra1028/DifferenceKit" "1.1.5"
