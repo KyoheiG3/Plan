@@ -5,7 +5,7 @@ public protocol Dispatchable {
 }
 
 public class AnyDispatcher<Action>: Dispatchable {
-    public let _dispatch: (Action) -> Void
+    private let _dispatch: (Action) -> Void
 
     init<D: Dispatchable>(dispatcher: D) where D.Action == Action {
         _dispatch = dispatcher.dispatch
