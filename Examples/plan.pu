@@ -1,0 +1,43 @@
+@startuml Plan Example Structure
+
+title Plan Example Structure
+
+file Example
+note right : Example App
+
+file Catalog
+note right : UITest App
+
+frame Presentation <<Framework>> {
+  [Presenter]
+  [Component] <<Framework>>
+}
+
+frame Domain <<Framework>> {
+  [Interactor]
+  [Repository]
+  [UseCase] <<Framework>>
+}
+
+frame Data {
+  [Entity] <<Framework>>
+}
+
+Example --> Presentation
+Example ---> Domain
+
+Example --> Component
+Catalog --> Component
+Presenter -> Component
+
+Interactor -> UseCase
+Presenter --> UseCase
+Component --> UseCase
+
+Interactor ..> Repository
+
+Component --> Entity
+Repository --> Entity
+UseCase -> Entity
+
+@enduml
