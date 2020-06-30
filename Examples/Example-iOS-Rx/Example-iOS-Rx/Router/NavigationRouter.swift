@@ -14,7 +14,7 @@ final class NavigationRouter: NavigationRouting, MyPageRouting, HomeRouting, Log
 
     func pushUserEdit() {
         let presenter = UserEditPresenter(store: .init(), translator: .init())
-        let interactor = UserEditInteractor(dispatcher: presenter.dispatcher, dependency: .default)
+        let interactor = UserEditInteractor(dispatcher: presenter.asDispatcher(), dependency: .default)
         let controller = UserEditViewController(presenter: presenter, useCase: interactor, router: self, notification: NotificationCenter.default)
         container?.pushViewController(controller, animated: true)
     }
@@ -23,7 +23,7 @@ final class NavigationRouter: NavigationRouting, MyPageRouting, HomeRouting, Log
         let navigation = NavigationController(router: self)
         let router = NavigationRouter(container: navigation, tabRouter: tabRouter)
         let presenter = LoginPresenter(store: .init(), translator: .init())
-        let interactor = LoginInteractor(dispatcher: presenter.dispatcher, dependency: .default)
+        let interactor = LoginInteractor(dispatcher: presenter.asDispatcher(), dependency: .default)
         let controller = LoginViewController(presenter: presenter, useCase: interactor, router: router, notification: NotificationCenter.default)
         navigation.viewControllers = [controller]
         container?.present(navigation, animated: true)

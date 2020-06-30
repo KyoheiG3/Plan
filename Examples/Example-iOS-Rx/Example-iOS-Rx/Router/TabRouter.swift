@@ -66,13 +66,13 @@ private extension TabRouter {
         switch tab {
         case .home:
             let presenter = HomePresenter(store: .init(), translator: .init())
-            let interactor = HomeInteractor(dispatcher: presenter.dispatcher, dependency: .default)
+            let interactor = HomeInteractor(dispatcher: presenter.asDispatcher(), dependency: .default)
             let controller = HomeViewController(presenter: presenter, useCase: interactor, router: homeRouter, notification: NotificationCenter.default)
             homeContainer.viewControllers = [controller]
 
         case .myPage:
             let presenter = MyPagePresenter(store: .init(), translator: .init())
-            let interactor = MyPageInteractor(dispatcher: presenter.dispatcher, dependency: .default)
+            let interactor = MyPageInteractor(dispatcher: presenter.asDispatcher(), dependency: .default)
             let controller = MyPageViewController(presenter: presenter, useCase: interactor, router: myPageRouter, notification: NotificationCenter.default)
             myPageContainer.viewControllers = [controller]
         }

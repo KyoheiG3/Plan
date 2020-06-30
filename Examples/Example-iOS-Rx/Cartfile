@@ -1,4 +1,4 @@
 github "ReactiveX/RxSwift" == 5.1.1
 github "ra1028/Carbon" "fbe2c84c0e006051a8592624be6c32f87a10cd83"
-git "../../../Plan" == 0.0.2
+git "../../../Plan" == 0.2.0
 github "playbook-ui/playbook-ios"
