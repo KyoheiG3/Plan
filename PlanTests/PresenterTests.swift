@@ -6,7 +6,15 @@ private final class PresenterTests: XCTestCase {
         let translator = TranslatorMock()
         let presenter = Presenter(store: translator.store, translator: translator)
 
-        presenter.dispatcher.dispatch(.test)
+        presenter.dispatch(.test)
+
+        XCTAssertEqual(translator.latestAction, .test)
+        XCTAssertTrue(translator.store.isCalled)
+
+        translator.latestAction = nil
+        translator.store.isCalled = false
+
+        presenter.asDispatcher().dispatch(.test)
 
         XCTAssertEqual(translator.latestAction, .test)
         XCTAssertTrue(translator.store.isCalled)

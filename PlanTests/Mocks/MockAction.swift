@@ -1,0 +1,3 @@
+enum MockAction {
+    case test
+}

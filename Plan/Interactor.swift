@@ -3,6 +3,11 @@ open class Interactor<Action> {
     public let dispatcher: AnyDispatcher<Action>
 
     public init<D: Dispatchable>(dispatcher: D) where D.Action == Action {
-        self.dispatcher = AnyDispatcher(dispatcher: dispatcher)
+        if let dispatcher = dispatcher as? AnyDispatcher<Action> {
+            self.dispatcher = dispatcher
+        }
+        else {
+            self.dispatcher = AnyDispatcher(dispatcher)
+        }
     }
 }

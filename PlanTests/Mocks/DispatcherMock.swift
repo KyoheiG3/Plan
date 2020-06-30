@@ -14,4 +14,8 @@ final class DispatcherMock: Dispatchable {
     func dispatch(_ action: Action) {
         _dispatch(action)
     }
+
+    func asDispatcher() -> AnyDispatcher<Action> {
+        AnyDispatcher(self)
+    }
 }

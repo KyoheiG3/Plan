@@ -1,4 +1,4 @@
-public final class Dispatcher<Action>: Dispatchable {
+final class Dispatcher<Action>: Dispatchable {
     private let executor: Executor<Action>
 
     deinit {
@@ -17,7 +17,11 @@ public final class Dispatcher<Action>: Dispatchable {
         self.executor = executor
     }
 
-    public func dispatch(_ action: Action) {
+    func dispatch(_ action: Action) {
         executor.execute(work: action)
+    }
+
+    func asDispatcher() -> AnyDispatcher<Action> {
+        AnyDispatcher(self)
     }
 }
