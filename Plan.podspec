@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/KyoheiG3/Plan'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Kyohei Ito' => 'ito_kyohei@cyberagent.co.jp' }
-  s.source           = { :git => 'https://github.com/KyoheiG3/Plan', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/KyoheiG3/Plan.git', :tag => s.version.to_s }
   s.ios.deployment_target       = '10.0'
   s.tvos.deployment_target      = '10.0'
   s.osx.deployment_target       = '10.12'
