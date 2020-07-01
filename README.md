@@ -1,5 +1,10 @@
 # Plan
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Version](https://img.shields.io/cocoapods/v/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
+[![License](https://img.shields.io/cocoapods/l/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
+[![Platform](https://img.shields.io/cocoapods/p/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
+
 The `Plan.framework` helps to keep your iOS application design clean. Think of it as a clean architecture. Read about clean architecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
 ## overview
@@ -107,6 +112,36 @@ class LoginPresenter: Presenter<LoginTranslator>, LoginPresenterProtocol {
         store.viewModel.asObservable()
     }
 }
+```
+
+When initializing the `Interactor`, pass the `Presenter` instance as the `Dispatcher`.
+
+```swift
+let presenter = LoginPresenter(store: LoginStore(), translator: LoginTranslator())
+let interactor = LoginInteractor(dispatcher: presenter.asDispatcher())
+```
+
+Normally, the `Action` that can be dispatched to the `Presenter` is limited to the one defined in the `Translator`, but if there are multiple `UseCase`, by overloading the `asDispatcher()` method, It is possible to dispatch to multiple `Interactor`.
+
+```swift
+class LoginPresenter: Presenter<LoginTranslator>, LoginPresenterProtocol {
+    var viewModel: Observable<LoginViewModel> {
+        store.viewModel.asObservable()
+    }
+
+    func asDispatcher() -> AnyDispatcher<UserInfoUseCaseAction> {
+        AnyDispatcher(self)
+            .map { (action: UserInfoUseCaseAction) in
+                // Convert UserInfoUseCaseAction to LoginTranslator.Action
+        }
+    }
+}
+
+let presenter = LoginPresenter(store: LoginStore(), translator: LoginTranslator())
+
+// Can dispatch to one Presenter from multiple Interactors.
+let loginInteractor = LoginInteractor(dispatcher: presenter.asDispatcher())
+let userInfoInteractor = UserInfoInteractor(dispatcher: presenter.asDispatcher())
 ```
 
 ### More details
