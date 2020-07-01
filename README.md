@@ -1,9 +1,11 @@
 # Plan
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Build](https://github.com/KyoheiG3/Plan/workflows/Build/badge.svg)](https://github.com/KyoheiG3/Plan/actions)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-blue.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![codecov](https://codecov.io/gh/KyoheiG3/Plan/branch/master/graph/badge.svg)](https://codecov.io/gh/KyoheiG3/Plan)
 [![Version](https://img.shields.io/cocoapods/v/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
-[![License](https://img.shields.io/cocoapods/l/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
 [![Platform](https://img.shields.io/cocoapods/p/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
+[![License](https://img.shields.io/cocoapods/l/Plan.svg?style=flat)](http://cocoadocs.org/docsets/Plan)
 
 The `Plan.framework` helps to keep your iOS application design clean. Think of it as a clean architecture. Read about clean architecture [here](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).
 
