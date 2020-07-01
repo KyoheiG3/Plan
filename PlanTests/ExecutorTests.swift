@@ -44,7 +44,7 @@ private final class ExecutorTests: XCTestCase {
             }
         }
 
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.1) {
             excutor.execute(work: 1)
         }
 
@@ -109,7 +109,7 @@ private final class ExecutorTests: XCTestCase {
             excutor.execute(work: 1)
         }
 
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.1) {
             excutor.execute(work: 1)
         }
 
@@ -137,7 +137,7 @@ private final class ExecutorTests: XCTestCase {
             excutor.execute(work: 1)
         }
 
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.1) {
             excutor.execute(work: 1)
         }
 
