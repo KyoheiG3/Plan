@@ -1,7 +1,7 @@
 import Component
-import Domain
 import Presentation
 import UIKit
+import UseCase
 
 enum RootTab: Int, CaseIterable {
     case home, myPage

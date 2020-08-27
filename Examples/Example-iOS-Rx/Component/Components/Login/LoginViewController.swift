@@ -1,6 +1,6 @@
+import Boundary
 import RxSwift
 import UIKit
-import UseCase
 
 public protocol LoginRouting: AnyObject {
     func dismiss()

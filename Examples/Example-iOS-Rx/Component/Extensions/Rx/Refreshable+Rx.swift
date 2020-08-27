@@ -1,5 +1,5 @@
+import Boundary
 import RxCocoa
-import UseCase
 
 public extension Refreshable {
     var refresh: Binder<Void> {

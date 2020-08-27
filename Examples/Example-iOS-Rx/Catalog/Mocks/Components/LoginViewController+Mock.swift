@@ -1,6 +1,6 @@
+import Boundary
 import Component
 import RxSwift
-import UseCase
 
 extension LoginViewController {
     static func mock() -> LoginViewController {

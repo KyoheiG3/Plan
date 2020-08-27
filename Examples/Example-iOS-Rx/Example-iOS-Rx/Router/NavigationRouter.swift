@@ -1,7 +1,7 @@
 import Component
-import Domain
-import Presentation
 import Foundation
+import Presentation
+import UseCase
 
 final class NavigationRouter: NavigationRouting, MyPageRouting, HomeRouting, LoginRouting, UserEditRouting {
     private weak var container: NavigationController?

@@ -1,8 +1,8 @@
+import Boundary
 import Carbon
 import Entity
 import RxSwift
 import UIKit
-import UseCase
 
 public protocol HomeRouting: AnyObject {}
 
