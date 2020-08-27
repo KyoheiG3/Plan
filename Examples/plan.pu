@@ -13,31 +13,38 @@ frame Presentation <<Framework>> {
   [Component] <<Framework>>
 }
 
-frame Domain <<Framework>> {
-  [Interactor]
+frame Gateway <<Framework>> {
   [Repository]
-  [UseCase] <<Framework>>
 }
 
-frame Data {
+frame UseCase <<Framework>> {
+  [Interactor]
+  [Repository<I>]
+  [Boundary<I>] <<Framework>>
+}
+
+frame Domain {
   [Entity] <<Framework>>
 }
 
 Example --> Presentation
-Example ---> Domain
+Example --> Gateway
+Example ---> UseCase
+Gateway --> UseCase
 
 Example --> Component
 Catalog --> Component
 Presenter -> Component
 
-Interactor -> UseCase
-Presenter --> UseCase
-Component --> UseCase
+Interactor .> [Boundary<I>]
+Presenter --> [Boundary<I>]
+Component --> [Boundary<I>]
 
-Interactor ..> Repository
+Repository ..> [Repository<I>]
+Interactor --> [Repository<I>]
 
 Component --> Entity
-Repository --> Entity
-UseCase -> Entity
+[Repository<I>] --> Entity
+[Boundary<I>] -> Entity
 
 @enduml
