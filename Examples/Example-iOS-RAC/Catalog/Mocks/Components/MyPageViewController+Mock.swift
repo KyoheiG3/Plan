@@ -1,7 +1,7 @@
+import Boundary
 import Component
 import Entity
 import ReactiveSwift
-import UseCase
 
 extension MyPageViewController {
     static func mock(user: User?) -> MyPageViewController {

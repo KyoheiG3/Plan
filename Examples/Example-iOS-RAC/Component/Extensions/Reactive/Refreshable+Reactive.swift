@@ -1,5 +1,5 @@
+import Boundary
 import ReactiveSwift
-import UseCase
 
 public extension Refreshable {
     var refresh: BindingTarget<Void> {

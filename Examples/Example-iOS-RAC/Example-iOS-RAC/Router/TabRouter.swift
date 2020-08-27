@@ -1,5 +1,5 @@
 import Component
-import Domain
+import UseCase
 import Presentation
 import UIKit
 

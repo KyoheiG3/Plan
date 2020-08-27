@@ -1,8 +1,8 @@
+import Boundary
 import Carbon
 import Entity
 import ReactiveSwift
 import UIKit
-import UseCase
 
 public protocol MyPageRouting: AnyObject {
     func presentLogin()

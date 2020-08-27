@@ -1,6 +1,6 @@
+import Boundary
 import ReactiveSwift
 import UIKit
-import UseCase
 
 public protocol UserEditRouting: AnyObject {
     func pop()

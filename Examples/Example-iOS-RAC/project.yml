@@ -60,11 +60,11 @@ schemes:
       targets:
         - PresentationTests
 
-  Domain:
+  Gateway:
     build:
       targets:
-        Domain: all
-        DomainTests:
+        Gateway: all
+        GatewayTests:
           - test
     run:
       config: Dev
@@ -72,7 +72,21 @@ schemes:
       config: Test
       gatherCoverageData: true
       targets:
-        - DomainTests
+        - GatewayTests
+
+  UseCase:
+    build:
+      targets:
+        UseCase: all
+        UseCaseTests:
+          - test
+    run:
+      config: Dev
+    test:
+      config: Test
+      gatherCoverageData: true
+      targets:
+        - UseCaseTests
 
   Entity:
     build:
@@ -101,9 +115,10 @@ targets:
       - Configs
       - Example-iOS-RAC
     dependencies:
+      - target: Boundary
       - target: Component
-      - target: Domain
       - target: Entity
+      - target: Gateway
       - target: Presentation
       - target: UseCase
       - carthage: Plan
@@ -122,9 +137,9 @@ targets:
       - Configs
       - Catalog
     dependencies:
+      - target: Boundary
       - target: Component
       - target: Entity
-      - target: UseCase
       - carthage: PlaybookUI
       - carthage: Playbook
       - carthage: ReactiveCocoa
@@ -147,6 +162,7 @@ targets:
     sources:
       - path: Presentation
     dependencies:
+      - target: Boundary
       - target: Component
       - target: Entity
       - target: UseCase
@@ -161,24 +177,23 @@ targets:
     dependencies:
       - target: Presentation
 
-  Domain:
+  Gateway:
     type: framework
     platform: iOS
     sources:
-      - path: Domain
+      - path: Gateway
     dependencies:
       - target: Entity
       - target: UseCase
-      - carthage: Plan
       - carthage: ReactiveSwift
 
-  DomainTests:
+  GatewayTests:
     type: bundle.unit-test
     platform: iOS
     sources:
-      - DomainTests
+      - GatewayTests
     dependencies:
-      - target: Domain
+      - target: Gateway
 
   Component:
     type: framework
@@ -187,7 +202,7 @@ targets:
       - path: Component
     dependencies:
       - target: Entity
-      - target: UseCase
+      - target: Boundary
       - carthage: ReactiveCocoa
       - carthage: ReactiveSwift
       - carthage: Carbon
@@ -198,6 +213,25 @@ targets:
     platform: iOS
     sources:
       - path: UseCase
+    dependencies:
+      - target: Boundary
+      - target: Entity
+      - carthage: Plan
+      - carthage: ReactiveSwift
+
+  UseCaseTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - UseCaseTests
+    dependencies:
+      - target: UseCase
+
+  Boundary:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Boundary
     dependencies:
       - target: Entity
       - carthage: ReactiveSwift

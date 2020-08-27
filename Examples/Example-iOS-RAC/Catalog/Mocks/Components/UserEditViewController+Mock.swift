@@ -1,6 +1,6 @@
+import Boundary
 import Component
 import ReactiveSwift
-import UseCase
 
 extension UserEditViewController {
     static func mock() -> UserEditViewController {

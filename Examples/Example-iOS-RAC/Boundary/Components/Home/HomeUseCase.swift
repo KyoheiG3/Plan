@@ -1,0 +1,1 @@
+public protocol HomeUseCase: Refreshable {}
