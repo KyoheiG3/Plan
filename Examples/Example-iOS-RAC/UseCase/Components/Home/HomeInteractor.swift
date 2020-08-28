@@ -1,11 +1,6 @@
 import Boundary
-import Entity
 import Plan
 import ReactiveSwift
-
-public enum HomeUseCaseAction {
-    case updateUser(User?)
-}
 
 public final class HomeInteractor: Interactor<HomeUseCaseAction>, HomeUseCase {
     public struct Dependency {

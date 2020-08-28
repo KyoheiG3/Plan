@@ -1,7 +1,7 @@
+import Boundary
 import Component
 import Plan
 import ReactiveSwift
-import UseCase
 
 public final class UserEditPresenter: Presenter<UserEditTranslator>, UserEditPresenterProtocol {
     public var viewModel: Property<UserEditViewModel> {

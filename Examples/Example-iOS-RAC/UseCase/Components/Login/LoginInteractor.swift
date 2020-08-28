@@ -1,12 +1,6 @@
 import Boundary
-import Entity
 import Plan
 import ReactiveSwift
-
-public enum LoginUseCaseAction {
-    case loading
-    case login(Result<User, Error>)
-}
 
 public final class LoginInteractor: Interactor<LoginUseCaseAction>, LoginUseCase {
     public struct Dependency {

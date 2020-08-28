@@ -1,7 +1,7 @@
+import Boundary
 import Component
 import Plan
 import ReactiveSwift
-import UseCase
 
 public final class MyPagePresenter: Presenter<MyPageTranslator>, MyPagePresenterProtocol {
     public var viewModel: Property<MyPageViewModel> {

@@ -1,12 +1,6 @@
 import Boundary
-import Entity
 import Plan
 import ReactiveSwift
-
-public enum UserEditUseCaseAction {
-    case loading
-    case edit(Result<User, Error>)
-}
 
 public final class UserEditInteractor: Interactor<UserEditUseCaseAction>, UserEditUseCase {
     public struct Dependency {

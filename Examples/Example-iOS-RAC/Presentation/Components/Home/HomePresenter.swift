@@ -1,7 +1,7 @@
+import Boundary
 import Component
 import Plan
 import ReactiveSwift
-import UseCase
 
 public final class HomePresenter: Presenter<HomeTranslator>, HomePresenterProtocol {
     public var dataState: Property<HomeComposer.State> {

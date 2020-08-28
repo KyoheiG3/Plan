@@ -1,7 +1,7 @@
+import Boundary
 import Component
 import Plan
 import ReactiveSwift
-import UseCase
 
 public final class LoginPresenter: Presenter<LoginTranslator>, LoginPresenterProtocol {
     public var viewModel: Property<LoginViewModel> {

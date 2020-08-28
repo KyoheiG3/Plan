@@ -165,7 +165,6 @@ targets:
       - target: Boundary
       - target: Component
       - target: Entity
-      - target: UseCase
       - carthage: Plan
       - carthage: ReactiveSwift
 
