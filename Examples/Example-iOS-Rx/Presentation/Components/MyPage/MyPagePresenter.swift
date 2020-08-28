@@ -1,8 +1,8 @@
+import Boundary
 import Component
 import Plan
 import RxRelay
 import RxSwift
-import UseCase
 
 public final class MyPagePresenter: Presenter<MyPageTranslator>, MyPagePresenterProtocol {
     public var viewModel: Observable<MyPageViewModel> {

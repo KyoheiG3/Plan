@@ -162,9 +162,9 @@ targets:
     sources:
       - path: Presentation
     dependencies:
+      - target: Boundary
       - target: Component
       - target: Entity
-      - target: UseCase
       - carthage: Plan
       - carthage: RxSwift
       - carthage: RxRelay

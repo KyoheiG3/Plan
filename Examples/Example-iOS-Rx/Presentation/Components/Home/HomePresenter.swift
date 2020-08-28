@@ -1,8 +1,8 @@
+import Boundary
 import Component
 import Plan
 import RxRelay
 import RxSwift
-import UseCase
 
 public final class HomePresenter: Presenter<HomeTranslator>, HomePresenterProtocol {
     public var dataState: Observable<HomeComposer.State> {

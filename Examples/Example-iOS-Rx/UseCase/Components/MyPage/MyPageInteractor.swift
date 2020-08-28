@@ -1,12 +1,6 @@
 import Boundary
-import Entity
 import Plan
 import RxSwift
-
-public enum MyPageUseCaseAction {
-    case updateUser(User?)
-    case logout
-}
 
 public final class MyPageInteractor: Interactor<MyPageUseCaseAction>, MyPageUseCase {
     public struct Dependency {
